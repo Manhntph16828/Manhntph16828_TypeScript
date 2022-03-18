@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { NavLink, Route, Routes } from 'react-router-dom'
+import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
 import Homepage from './pages/Homepage'
+import WebsiteLayout from './pages/layouts/WebsiteLayout'
+import AdminLayout from './pages/layouts/AdminLayout'
 // import ShowInfo from './components/ShowInfo';
 function App() {
   // const [count, setCount] = useState<number>(0);
@@ -20,7 +22,17 @@ function App() {
   // }
   return (
     <div className='conteniner'>
-      <header>
+      <Routes>
+        <Route path='/' element={<WebsiteLayout />}>
+          <Route index element={<Homepage />} />
+          <Route path='product' element={<h1>Product page</h1>} />
+        </Route>
+        <Route path='admin' element={<AdminLayout />}>
+          <Route index element={<Navigate to={"dashbord"} />} />
+          <Route path='dashbord' element={<h1>Dashbord page</h1>} />
+        </Route>
+      </Routes>
+      {/* <header>
         <ul>
           <li><NavLink to="/">Home page</NavLink></li>
           <li><NavLink to="/product">Product page</NavLink></li>
@@ -31,9 +43,9 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element={<Homepage />}/>
-          <Route path='product' element={<ProductPa />}/>
+        
         </Routes>
-      </main>
+      </main> */}
     </div>
     // <div className="App">
     //   Count : {count} <button onClick={() => setCount(count +1)}>Click</button>
