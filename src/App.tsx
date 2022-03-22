@@ -30,7 +30,7 @@ function App() {
 
     // setProduct()
   }
-  const onHanldeAdd = (data) => {
+  const onHanldeAdd = (data :ProductType) => {
       add(data);
       setProducts([...products, data])
   }
