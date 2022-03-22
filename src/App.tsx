@@ -1,65 +1,65 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
+import { Navigate, NavLink, Route, Router, Routes } from 'react-router-dom'
 import Homepage from './pages/Homepage'
 import WebsiteLayout from './pages/layouts/WebsiteLayout'
 import AdminLayout from './pages/layouts/AdminLayout'
-// import ShowInfo from './components/ShowInfo';
-function App() {
-  // const [count, setCount] = useState<number>(0);
-  // const [myName, setMyname] = useState<string>("Nguyen Tien Manh");
-  // const [status, setStatus] = useState<boolean>(false);
-  // const [info, setInfo] = useState<{name: string, age:number}>({ name: "manh", age: 20});
-  // const [products, setProducts] = useState<{id: number, name: string}[]>([
-  //   {id: 1, name: "product 1"},
-  //   {id: 2, name: "product 2"},
-  //   {id: 3, name: "product 3"},
-  // ]) 
+import ProductDetail from './pages/ProductDetail'
+import ProductManager from './pages/ProductManager'
+import { ProductType } from './pages/types/product'
+import { add, list, remove } from './api/product'
+import ProductAdd from './pages/ProductAdd'
 
-  // const removeItem = (id :number) => {
-  //   const newsProduct = products.filter(item => item.id !==id)
-  // }
+function App() {
+  const [count, setCount] = useState(0);
+  const [status, setStatus] = useState(false);
+  const [products, setProducts] = useState<ProductType[]>([]);
+
+  useEffect(() => {
+      const getProducts = async () => {
+            const { data } = await list();
+            setProducts(data);
+      }
+      getProducts();
+  }, [])
+  const removeItem = (id:number) => {
+    remove(id);
+    // reRender
+    setProducts(products.filter(item => item.id !== id));
+
+    // setProduct()
+  }
+  const onHanldeAdd = (data) => {
+      add(data);
+      setProducts([...products, data])
+  }
   return (
-    <div className='conteniner'>
-      <Routes>
-        <Route path='/' element={<WebsiteLayout />}>
-          <Route index element={<Homepage />} />
-          <Route path='product' element={<h1>Product page</h1>} />
-        </Route>
-        <Route path='admin' element={<AdminLayout />}>
-          <Route index element={<Navigate to={"dashbord"} />} />
-          <Route path='dashbord' element={<h1>Dashbord page</h1>} />
-        </Route>
-      </Routes>
-      {/* <header>
-        <ul>
-          <li><NavLink to="/">Home page</NavLink></li>
-          <li><NavLink to="/product">Product page</NavLink></li>
-          <li><NavLink to="/about">About page</NavLink></li>
-          
-        </ul>
-      </header>
-      <main>
+    <div className="container">
+      {count} <button onClick={() => setCount(count + 1)}>Click</button>
+      <button onClick={() => setStatus(true)}>Click</button>
+      <div>
+        {products.map(item => item.name)}
+      </div>
         <Routes>
-          <Route path='/' element={<Homepage />}/>
-        
+          <Route path="/" element={<WebsiteLayout />}>
+              <Route index element={<Homepage />} />
+              <Route path="product">
+                <Route index element={<h1>Product Page</h1>} />
+                <Route path=":id" element={<ProductDetail />} />
+              </Route>
+              
+          </Route>
+          <Route path="admin" element={<AdminLayout />}>
+              <Route index element={<Navigate to="dashboard" />} />
+              <Route path="dashboard" element={<h1>Dashboard page</h1>} />
+              <Route path="product" element={<ProductManager products={products} onRemove={removeItem}/>} />
+              <Route path="/admin/product/add" element={<ProductAdd onAdd={onHanldeAdd}/>} />
+          </Route>
         </Routes>
-      </main> */}
     </div>
-    // <div className="App">
-    //   Count : {count} <button onClick={() => setCount(count +1)}>Click</button>
-    //   <hr />
-    //   Full name : {myName} <button onClick={() => setMyname("Bùi Thị Ngọc")}>Change Name</button>
-    //   <hr />
-    //   Info : {info.name} - {info.age}
-    //   <hr />
-    //   Product : {products.map(item => <div>{item.name} <button onClick={() => removeItem(item.id)}>Remove</button></div>)}
-    //   <hr />
-    //   Component: ShowInfo
-    //   <ShowInfo name="Dat" age={20}/>
-    // </div>
   )
 }
 
 export default App
+
