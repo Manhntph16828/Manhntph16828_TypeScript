@@ -1,8 +1,13 @@
 {
-    "products": [
-      {
-        "id": "3",
-        "name": "Product C"
-      }
-    ]
-  }
+  "products": [
+    {
+      "id": 3,
+      "name": "Product C"
+    },
+    {
+      "name": "nguyen tien manh",
+      "price": "12000",
+      "id": 4
+    }
+  ]
+}

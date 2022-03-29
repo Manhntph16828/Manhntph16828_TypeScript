@@ -56,7 +56,6 @@ function App() {
                 <Route index element={<h1>Product Page</h1>} />
                 <Route path=":id" element={<ProductDetail />} />
               </Route>
-              
           </Route>
           <Route path="admin" element={<AdminLayout />}>
               <Route index element={<Navigate to="dashboard" />} />
