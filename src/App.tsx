@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
 import { Navigate, NavLink, Route, Router, Routes } from 'react-router-dom'
 import Homepage from './pages/Homepage'
 import WebsiteLayout from './pages/layouts/WebsiteLayout'
@@ -9,8 +7,10 @@ import ProductDetail from './pages/ProductDetail'
 import ProductManager from './pages/ProductManager'
 import { ProductType } from './pages/types/product'
 import { add, list, remove ,update} from './api/product'
+import ShowInfo from './components/ShowInfo'
 import ProductAdd from './pages/ProductAdd'
 import ProductEdit from './pages/ProductEdit'
+import PrivateRouter from './components/PrivateRouter'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -57,7 +57,7 @@ function App() {
                 <Route path=":id" element={<ProductDetail />} />
               </Route>
           </Route>
-          <Route path="admin" element={<AdminLayout />}>
+          <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}>
               <Route index element={<Navigate to="dashboard" />} />
               <Route path="dashboard" element={<h1>Dashboard page</h1>} />
               <Route path="product" > 
@@ -65,6 +65,7 @@ function App() {
                 <Route path="add" element={<ProductAdd onAdd={onHanldeAdd}/>} />
                 <Route path=':id/edit' element={<ProductEdit onUpdate={onHandleUpdate}/>}/>
               </Route>
+              <Route path='/login' element={<h1>Login page</h1>}/>
           </Route>
         </Routes>
     </div>
