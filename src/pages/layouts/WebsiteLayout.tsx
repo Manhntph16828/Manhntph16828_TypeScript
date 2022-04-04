@@ -26,4 +26,4 @@ const WebsiteLayout = (props: Props) => {
   )
 }
 
-export default WebsiteLayout
+export default WebsiteLayout;

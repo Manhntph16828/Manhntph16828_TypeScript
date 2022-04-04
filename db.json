@@ -8,6 +8,11 @@
       "name": "nguyen tien manh",
       "price": "12000",
       "id": 4
+    },
+    {
+      "name": "mẫu 1",
+      "price": "30000",
+      "id": 5
     }
   ]
 }
