@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+
 import { Navigate, NavLink, Route, Router, Routes } from 'react-router-dom'
 import Homepage from './pages/Homepage'
 import WebsiteLayout from './pages/layouts/WebsiteLayout'
@@ -41,14 +42,13 @@ function App() {
     // reRender
     setProducts(products.map(item => item.id === data.id ? data : item ));
 }
-
   return (
     <div className="container">
-      {count} <button onClick={() => setCount(count + 1)}>Click</button>
-      <button onClick={() => setStatus(true)}>Click</button>
-      <div>
+      {/* {count} <button onClick={() => setCount(count + 1)}>Click</button>
+      <button onClick={() => setStatus(true)}>Click</button> */}
+      {/* <div>
         {products.map(item => item.name)}
-      </div>
+      </div> */}
         <Routes>
           <Route path="/" element={<WebsiteLayout />}>
               <Route index element={<Homepage />} />
@@ -57,7 +57,8 @@ function App() {
                 <Route path=":id" element={<ProductDetail />} />
               </Route>
           </Route>
-          <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}>
+          <Route path="admin" element={<AdminLayout></AdminLayout>}>
+          {/* <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}> */}
               <Route index element={<Navigate to="dashboard" />} />
               <Route path="dashboard" element={<h1>Dashboard page</h1>} />
               <Route path="product" > 
@@ -65,7 +66,7 @@ function App() {
                 <Route path="add" element={<ProductAdd onAdd={onHanldeAdd}/>} />
                 <Route path=':id/edit' element={<ProductEdit onUpdate={onHandleUpdate}/>}/>
               </Route>
-              <Route path='/login' element={<h1>Login page</h1>}/>
+              <Route path='login' element={<h1>Login page</h1>}/>
           </Route>
         </Routes>
     </div>
