@@ -39,18 +39,6 @@ const Navbar = (props: Props) => {
 					<li><NavLink to="/product">SHOP</NavLink></li>
 					<li><NavLink to="#">BLOG</NavLink></li>
 					<li><NavLink to="#">ARTICLE</NavLink></li>
-					{/* <li className="dropdown">
-						<NavLink to="#">
-							PAGES
-							<span className="caret"></span>
-						</NavLink>
-						<ul className="dropdown-menu">
-						   <li><NavLink  to="#">Action</NavLink></li>
-						    <li><NavLink  to="#">Another action</NavLink></li>
-						    <li><NavLink  to="#">Something else here</NavLink></li>
-						    <li><NavLink  to="#">Separated link</NavLink></li>
-						</ul>
-					</li>  */}
 		        </ul> 
 		    </div>	
 		</div>	

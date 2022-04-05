@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ProductType } from './types/product';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 type ProductAddProps = {
     onAdd: (product: ProductType) => void
@@ -23,6 +23,7 @@ const ProductAdd = (props: ProductAddProps) => {
         <input type="text" {...register('name', {required: true})}/>
         <input type="number"{...register('price')} />
         <button>Add</button>
+        <NavLink to="/admin/product">Quay lại</NavLink>
     </form>
   )
 }

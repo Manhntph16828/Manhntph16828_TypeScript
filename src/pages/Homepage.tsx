@@ -8,7 +8,7 @@ const Homepage = (props: Props) => {
   return (
     <div>
 		<section id="slider-area">
-		<div className="container">
+		{/* <div className="container">
 			<div className="row">
 				<div className="col-md-12">
 					<div id="slider" className="nivoSlider">
@@ -18,7 +18,8 @@ const Homepage = (props: Props) => {
 					</div>	
 				</div>	
 			</div>	
-		</div>	
+		</div>	 */}
+		<img src="images/slider.jpg" alt="" />
 	</section>
 
 	{/*  */}

@@ -44,11 +44,7 @@ function App() {
 }
   return (
     <div className="container">
-      {/* {count} <button onClick={() => setCount(count + 1)}>Click</button>
-      <button onClick={() => setStatus(true)}>Click</button> */}
-      {/* <div>
-        {products.map(item => item.name)}
-      </div> */}
+      
         <Routes>
           <Route path="/" element={<WebsiteLayout />}>
               <Route index element={<Homepage />} />

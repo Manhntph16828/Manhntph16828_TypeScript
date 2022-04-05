@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { ProductType } from './types/product'
 
 type ProductManagerProps = {
@@ -8,6 +9,7 @@ type ProductManagerProps = {
 const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
   return (
     <div>
+     <NavLink to="/admin/product/add">add</NavLink>
       <table>
         <thead>
           <tr>
