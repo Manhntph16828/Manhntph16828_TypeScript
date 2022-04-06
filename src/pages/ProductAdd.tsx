@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ProductType } from './types/product';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 type ProductAddProps = {
     onAdd: (product: ProductType) => void
@@ -19,12 +19,18 @@ const ProductAdd = (props: ProductAddProps) => {
         navigate('/admin/product')
     }
   return (
-    <form action="" onSubmit={handleSubmit(onSubmit)}>
-        <input type="text" {...register('name', {required: true})}/>
-        <input type="number"{...register('price')} />
-        <button>Add</button>
-        <NavLink to="/admin/product">Quay lại</NavLink>
-    </form>
+      <div>
+         <h1>Thêm sản phẩm</h1>
+        <form action="" onSubmit={handleSubmit(onSubmit)}>
+            <label>Tên sản phẩm</label><br/>
+            <input style={{width:'500px'}} type="text" {...register('name', {required: true})}/><br/>
+            <label>Gía</label><br/>
+            <input style={{width:'500px'}}  type="number"{...register('price')} /><br/>
+            <button style={{background:'green'}}>Thêm sản phẩm</button>
+            
+        </form>
+      </div>
+     
   )
 }
 

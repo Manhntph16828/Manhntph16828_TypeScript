@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-
 import { Navigate, NavLink, Route, Router, Routes } from 'react-router-dom'
 import Homepage from './pages/Homepage'
 import WebsiteLayout from './pages/layouts/WebsiteLayout'
@@ -12,9 +11,11 @@ import ShowInfo from './components/ShowInfo'
 import ProductAdd from './pages/ProductAdd'
 import ProductEdit from './pages/ProductEdit'
 import PrivateRouter from './components/PrivateRouter'
+import Signup from './pages/Signup'
+import Signin from './pages/Signin'
 
 function App() {
-  const [count, setCount] = useState(0);
+  
   const [status, setStatus] = useState(false);
   const [products, setProducts] = useState<ProductType[]>([]);
 
@@ -47,7 +48,7 @@ function App() {
       
         <Routes>
           <Route path="/" element={<WebsiteLayout />}>
-              <Route index element={<Homepage />} />
+              <Route index element={<Homepage products={products}/>} />
               <Route path="product">
                 <Route index element={<h1>Product Page</h1>} />
                 <Route path=":id" element={<ProductDetail />} />
@@ -62,8 +63,10 @@ function App() {
                 <Route path="add" element={<ProductAdd onAdd={onHanldeAdd}/>} />
                 <Route path=':id/edit' element={<ProductEdit onUpdate={onHandleUpdate}/>}/>
               </Route>
-              <Route path='login' element={<h1>Login page</h1>}/>
+              
           </Route>
+          <Route path="/signup" element={<Signup />} />
+            <Route path="/signin" element={<Signin />} />
         </Routes>
     </div>
   )

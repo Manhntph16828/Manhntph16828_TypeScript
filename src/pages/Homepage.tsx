@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import Banner from '../components/Banner'
 
+
 type Props = {}
 
 const Homepage = (props: Props) => {
@@ -131,6 +132,7 @@ const Homepage = (props: Props) => {
 			</div>
 		</div>	
 	</section>
+	
   <section id="products">
 		<div className="container">
 			<div className="row">

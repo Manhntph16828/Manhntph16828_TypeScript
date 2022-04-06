@@ -1,15 +1,6 @@
 {
   "products": [
     {
-      "id": 3,
-      "name": "Product C"
-    },
-    {
-      "name": "nguyen tien manh",
-      "price": "12000",
-      "id": 4
-    },
-    {
       "name": "mẫu 1",
       "price": "30000",
       "id": 5
@@ -18,6 +9,16 @@
       "name": "Áo khoác bomber nỉ nhung HI 80222",
       "price": "12344",
       "id": 6
+    },
+    {
+      "name": "Nguyên Bùi",
+      "price": "12000",
+      "id": 8
+    },
+    {
+      "name": "nguyen tien manh",
+      "price": "12344",
+      "id": 9
     }
   ]
 }

@@ -14,8 +14,7 @@ const WebsiteLayout = (props: Props) => {
             <Header />
             <Navbar />
         </header>
-        <main>
-          
+        <main> 
             <Outlet />
         </main>
         <footer>
