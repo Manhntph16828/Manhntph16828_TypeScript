@@ -14,7 +14,7 @@ type Props = {}
 
 const AdminLayout = (props: Props) => {
   return (
-    <Layout style={{height:'800px'}}>
+    <Layout >
       <Sider  breakpoint="lg"
       collapsedWidth="0"
       onBreakpoint={broken => {

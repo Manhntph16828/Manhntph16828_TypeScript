@@ -127,7 +127,7 @@ const Header = (props: Props) => {
 			<div className="row">
 				<div className="col-md-12">
 					<NavLink to="#">
-						<img src="images/logo.png" alt="logo"/>
+						<img className='text-center' src="images/logo.png" alt="logo" />
 					</NavLink>
 				</div>	
 			</div>
