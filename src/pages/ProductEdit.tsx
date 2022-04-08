@@ -29,13 +29,6 @@ const ProductEdit = (props: ProductEditProps) => {
         navigate('/admin/product')
     }
   return (
-    // <form action="" onSubmit={handleSubmit(onSubmit)}>
-    //     <input type="text" {...register('name', { required: true})} />
-    //     { errors.name && <span>Fields is required</span>}
-    //     <input type="number" {...register('price')} />
-    //     <button>Update</button>
-    // </form>
-
     <div className="p-8 rounded border border-gray-200">
         <h1 className="font-medium text-3xl">Sửa sản phẩm</h1>
         <form action="" onSubmit={handleSubmit(onSubmit)}>

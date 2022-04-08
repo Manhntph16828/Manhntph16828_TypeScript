@@ -16,7 +16,6 @@ import Signup from './pages/Signup'
 import Signin from './pages/Signin'
 
 function App() {
-  
   const [status, setStatus] = useState(false);
   const [products, setProducts] = useState<ProductType[]>([]);
 
@@ -31,7 +30,6 @@ function App() {
     remove(id);
     // reRender
     setProducts(products.filter(item => item.id !== id));
-
     // setProduct()
   }
   const onHanldeAdd = (data :ProductType) => {
@@ -49,6 +47,7 @@ function App() {
       
         <Routes>
           <Route path="/" element={<WebsiteLayout />}>
+            
               <Route index element={<Homepage products={products}/>} />
               <Route path="product">
                 <Route index element={<ProductPage products={products}/>} />
@@ -66,7 +65,7 @@ function App() {
               </Route>
           </Route>
           <Route path="/signup" element={<Signup />} />
-            <Route path="/signin" element={<Signin />} />
+          <Route path="/signin" element={<Signin />} />
         </Routes>
     </div>
   )

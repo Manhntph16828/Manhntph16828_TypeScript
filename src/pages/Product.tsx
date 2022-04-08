@@ -1,11 +1,23 @@
-import React from 'react'
+import Item from 'antd/lib/list/Item';
+import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom';
+import { list } from '../api/product';
 import { ProductType } from './types/product'
 
 type ProductPageProps = {
   products:ProductType[]
 }
 
-const ProductPage = (products: ProductPageProps) => {
+const ProductPage = (props: ProductPageProps) => {
+  const [status, setStatus] = useState(false);
+  const [products, setProducts] = useState<ProductType[]>([]);
+  useEffect(() => {
+	const getProducts = async () => {
+		  const { data } = await list();
+		  setProducts(data);
+	}
+	getProducts();
+}, [])
   return (
     <div>
   <section id="topic-header">
@@ -32,25 +44,27 @@ const ProductPage = (products: ProductPageProps) => {
               <h2>NEW PRODUCTS</h2>
             </div>
             <div className="product-grid">
-               
+              
                 <ul>
-
-                    <li>
-                      <div className="products">
-                          <a href="#">
-                            <img src="images/product-image-8.jpg" alt=""/>
-                          </a>
-                          <a href="#">
-                            <h4>Amazing Italian Sauces</h4>
-                          </a>
-                          <p className="price">From: £69.99</p>
-                          <div >
-                            <a className="view-link shutter" href="#">
-                            <i className="fa fa-plus-circle"></i>Add To Cart</a>
-                          </div>
-                      </div>	
-                    </li>
-                    <li>
+                  {products?.map((item,index)=>{
+                    return <li>
+                    <div className="products">
+                        <NavLink to={`${item.id}`}>
+                          <img src="images/product-image-8.jpg" alt=""/>
+                        </NavLink>
+                        <NavLink to="#">
+                          <h4>{item.name}</h4>
+                        </NavLink>
+                        <p className="price">{item.price}$</p>
+                        <div >
+                          <NavLink className="view-link shutter" to="#">
+                          <i className="fa fa-plus-circle"></i>Add To Cart</NavLink>
+                        </div>
+                    </div>	
+                  </li>
+                  })}
+                    
+                    {/* <li>
                         <div className="products">
                     <a href="#">
                       <img src="images/product-image-8.jpg" alt=""/>
@@ -124,7 +138,7 @@ const ProductPage = (products: ProductPageProps) => {
                       <i className="fa fa-plus-circle"></i>Add To Cart</a>
                     </div>
                   </div>	
-                    </li>
+                    </li> */}
                     
                 </ul>
             </div>
