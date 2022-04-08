@@ -9,33 +9,6 @@ type ProductManagerProps = {
 }
 const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
   return (
-    // <div>
-    //   <button > <NavLink to="/admin/product/add">Thêm sản phẩm</NavLink></button>
-    
-    //   <table style={{width:'100%'}}>
-    //     <thead style={{width:'100%'},{textAlign:'left'}}>
-    //       <tr>
-    //         <th>STT</th>
-    //         <th>Tên sản phẩm</th>
-    //         <th>Giá</th>
-    //         <th>Xử lý</th>
-    //       </tr>
-    //     </thead>
-    //     <tbody style={{textAlign:'left'}}>
-    //       {products?.map((item, index) => {
-    //         return <tr key={index}>
-    //           <td>{index + 1}</td>
-    //           <td>{item.name}</td>
-    //           <td>{item.price}</td>
-    //           <td>
-    //           <Link to={`/admin/product/${item.id}/edit`}>Edit</Link>
-    //             <button onClick={() => onRemove(item.id)} style={{color:'balck'},{background:'red'}}>Remove</button>
-    //           </td>
-    //         </tr>
-    //       })}
-    //     </tbody>
-    //   </table>
-    //   </div>
     <div className="table w-full p-2">
       <h1 className='text-2xl'>Quản lý sản phẩm</h1>
       <button type="submit" className="inline-flex items-center justify-center space-x-2 py-3 px-4 border border-transparent text-sm font-medium rounded text-green-600 hover:text-green-700 bg-green-50 hover:bg-green-100 transition-colors">
@@ -62,11 +35,7 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
                           Price 
                       </div>
                   </th>
-                  {/* <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                      <div className="flex items-center justify-center">
-                          Address 
-                      </div>
-                  </th> */}
+                  
                   <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                       <div className="flex items-center justify-center">
                           Action
@@ -84,8 +53,7 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
                 <td>
                     <NavLink className='mr-4' to={`/admin/product/${item.id}/edit`}>Edit</NavLink>
                     <button className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin" onClick={() => onRemove(item.id)} >Remove</button>
-                    {/* <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                    <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a> */}
+                    
                 </td>
               </tr>
             })}

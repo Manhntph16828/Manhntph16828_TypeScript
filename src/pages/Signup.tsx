@@ -13,7 +13,7 @@ const Signup = () => {
     const navigate = useNavigate();
 
     const onSubmit: SubmitHandler<FormInputs> = data => {
-        signup(data );
+        signup(data);
         // navigate('/admin/product')
     }
   return (

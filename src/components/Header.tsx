@@ -27,7 +27,7 @@ const Header = (props: Props) => {
 				<div className="col-md-3 clearfix">
 					<ul className="login-cart">
 						<li>
-							<NavLink data-toggle="modal" data-target="#myModal" to="#">
+							<NavLink data-toggle="modal" data-target="#myModal" to="/signin">
 							<i className="fa fa-user"></i>
 								Login
 							</NavLink>
@@ -76,44 +76,7 @@ const Header = (props: Props) => {
 		      		</div>
 			      	<div className="modal-body clearfix">
 
-						{/* <form action="#" method="post" id="create-account_form" className="std">
-							<fieldset>
-								<h3>Create your account</h3>
-								<div className="form_content clearfix">
-									<h4>Enter your e-mail address to create an account.</h4>
-									<p className="text">
-										<label for="email_create">E-mail address</label>
-										<span>
-											<input placeholder="E-mail address"  type="text" id="email_create" name="email_create" value="" className="account_input">
-					                    </span>
-									</p>
-									<p className="submit">
-										<button className="btn btn-primary">Create Your Account</button>
-									</p>
-								</div>
-							</fieldset>
-						</form> */}
-			      		{/* <form action="" method="post" id="login_form" className="std">
-							<fieldset>
-								<h3>Already registered?</h3>
-								<div className="form_content clearfix">
-									<p className="text">
-									<label for="email">E-mail address</label>
-										<span><input placeholder="E-mail address" type="text" id="email" name="email" value="" className="account_input"></span>
-									</p>
-									<p className="text">
-									<label for="passwd">Password</label>
-										<span><input placeholder="Password" type="password" id="passwd" name="passwd" value="" className="account_input"></span>
-									</p>
-									<p className="lost_password">
-										<a href="#popab-password-reset" className="popab-password-link">Forgot your password?</a>
-									</p>
-									<p className="submit">
-										<button className="btn btn-success">Log in</button>
-									</p>
-								</div>
-							</fieldset>
-						</form> */}
+					
 			      	</div>
 			      	<div className="modal-footer">
 			        	<button type="button" className="btn btn-default" data-dismiss="modal">Close</button>

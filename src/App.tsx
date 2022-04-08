@@ -3,6 +3,7 @@ import { Navigate, NavLink, Route, Router, Routes } from 'react-router-dom'
 import Homepage from './pages/Homepage'
 import WebsiteLayout from './pages/layouts/WebsiteLayout'
 import AdminLayout from './pages/layouts/AdminLayout'
+import ProductPage from './pages/Product'
 import ProductDetail from './pages/ProductDetail'
 import ProductManager from './pages/ProductManager'
 import { ProductType } from './pages/types/product'
@@ -50,12 +51,12 @@ function App() {
           <Route path="/" element={<WebsiteLayout />}>
               <Route index element={<Homepage products={products}/>} />
               <Route path="product">
-                <Route index element={<h1>Product Page</h1>} />
+                <Route index element={<ProductPage products={products}/>} />
                 <Route path=":id" element={<ProductDetail />} />
               </Route>
           </Route>
-          <Route path="admin" element={<AdminLayout></AdminLayout>}>
-          {/* <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}> */}
+          {/* <Route path="admin" element={<AdminLayout></AdminLayout>}> */}
+          <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}>
               <Route index element={<Navigate to="dashboard" />} />
               <Route path="dashboard" element={<h1>Dashboard page</h1>} />
               <Route path="product" > 
@@ -63,7 +64,6 @@ function App() {
                 <Route path="add" element={<ProductAdd onAdd={onHanldeAdd}/>} />
                 <Route path=':id/edit' element={<ProductEdit onUpdate={onHandleUpdate}/>}/>
               </Route>
-              
           </Route>
           <Route path="/signup" element={<Signup />} />
             <Route path="/signin" element={<Signin />} />

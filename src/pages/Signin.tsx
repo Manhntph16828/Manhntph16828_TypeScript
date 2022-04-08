@@ -19,10 +19,12 @@ const Signin = () => {
     }
   return (
     <form action="" onSubmit={handleSubmit(onSubmit)}>
-        <input type="email" {...register('email', {required: true})}/>
-        <input type="number"{...register('password', {required: true})} />
-        <button>Đăng ký</button>
+        <input type="email" {...register('email', {required: true})}/><br></br>
+        <input type="number"{...register('password', {required: true})} /><br></br>
+        <button >Đăng ký</button>
     </form>
+    
+    
   )
 }
 
