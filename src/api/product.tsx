@@ -13,8 +13,14 @@ export const remove = (id: number) => {
     return instance.delete(url);
 }
 export const add = (product: ProductType) => {
-    const url = `/products`;
-    return instance.post(url, product);
+    const url = `/products/${user._id}`;
+    return instance.post(url, product, {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    });
+    // const url = `/products`;
+    // return instance.post(url, product);
 }
 export const read = (id: number) => {
     const url = `/products/${id}`;

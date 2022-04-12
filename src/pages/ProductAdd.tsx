@@ -19,17 +19,7 @@ const ProductAdd = (props: ProductAddProps) => {
         navigate('/admin/product')
     }
   return (
-    //   <div>
-    //      <h1>Thêm sản phẩm</h1>
-    //     <form action="" onSubmit={handleSubmit(onSubmit)}>
-    //         <label>Tên sản phẩm</label><br/>
-    //         <input style={{width:'500px'}} type="text" {...register('name', {required: true})}/><br/>
-    //         <label>Gía</label><br/>
-    //         <input style={{width:'500px'}}  type="number"{...register('price')} /><br/>
-    //         <button style={{background:'green'}}>Thêm sản phẩm</button>
-            
-    //     </form>
-    //   </div>
+    
     <div className="p-8 rounded border border-gray-200">
         <h1 className="font-medium text-3xl">Thêm sản phẩm</h1>
         <form action="" onSubmit={handleSubmit(onSubmit)}>
@@ -38,7 +28,6 @@ const ProductAdd = (props: ProductAddProps) => {
             <label htmlFor="name" className="text-sm text-gray-700 block mb-1 font-medium">Name</label>
             <input type="text"  {...register('name', {required: true})} id="name" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"  />
             </div>
-    
             <div>
             <label htmlFor="email" className="text-sm text-gray-700 block mb-1 font-medium">Price</label>
             <input type="text" {...register('price')} id="email" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"  />

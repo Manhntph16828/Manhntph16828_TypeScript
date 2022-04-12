@@ -14,7 +14,7 @@ const Signup = () => {
 
     const onSubmit: SubmitHandler<FormInputs> = data => {
         signup(data);
-        // navigate('/admin/product')
+        navigate("/signin");
     }
   return (
     <form action="" onSubmit={handleSubmit(onSubmit)}>
