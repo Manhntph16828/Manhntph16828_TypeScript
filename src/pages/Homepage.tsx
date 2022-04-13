@@ -144,7 +144,6 @@ function Homepage(props: HomepageProps) {
 					</div>
 				</div>
 			</section>
-
 			<section id="products">
 				<div className="container">
 					<div className="row">
@@ -159,19 +158,18 @@ function Homepage(props: HomepageProps) {
 					 
 					 return <div className="col-md-3 ">
 							<div className="products">
-								<a href="single-product.html">
+								<NavLink to={`/product/${item.id}`}>
 									<img src="images/product-image.jpg" alt="" />
-								</a>
-								<a href="single-product.html">
+								</NavLink>
+								<NavLink to="single-product.html">
 									<h4>{item.name}</h4>
-								</a>
+								</NavLink>
 								<p className="price">{item.price}</p>
-								<a className="view-link shutter" href="#">
-									<i className="fa fa-plus-circle"></i>Add To Cart</a>
+								<NavLink className="view-link shutter" to="#">
+									<i className="fa fa-plus-circle"></i>Add To Cart</NavLink>
 							</div>
 					</div>
 			
-					
 					})}
 					</div>
 				</div>

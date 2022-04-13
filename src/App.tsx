@@ -14,11 +14,15 @@ import ProductEdit from './pages/ProductEdit'
 import PrivateRouter from './components/PrivateRouter'
 import Signup from './pages/Signup'
 import Signin from './pages/Signin'
+import CategoriesManager from './pages/CategoryManager'
+import { CategoriesType } from './pages/types/category'
+import CategoriesAdd from './pages/CategoriesAdd'
+import { addCate, listCate, removeCate } from './api/category'
 
 function App() {
   const [status, setStatus] = useState(false);
   const [products, setProducts] = useState<ProductType[]>([]);
-
+  const [categories, setCategory] = useState<CategoriesType[]>([]);
   useEffect(() => {
       const getProducts = async () => {
             const { data } = await list();
@@ -26,16 +30,33 @@ function App() {
       }
       getProducts();
   }, [])
+  useEffect(()=>{
+    const getCategories = async () =>{
+      const { data } = await listCate();
+      setCategory(data);
+    }
+    getCategories();
+  },[])
   const removeItem = (id:number) => {
     remove(id);
     // reRender
     setProducts(products.filter(item => item.id !== id));
     // setProduct()
   }
+  const removeCateItem = (id:number) => {
+    removeCate(id);
+    // reRender
+    setCategory(categories.filter(item => item.id !== id));
+    // setProduct()
+  }
   const onHanldeAdd = (data :ProductType) => {
       add(data);
       setProducts([...products, data])
   }
+  const onHanldeCateAdd = (data :CategoriesType) => {
+    addCate(data);
+    setCategory([...categories, data])
+}
 
   const onHandleUpdate = async (product: ProductType) => {
     const { data } = await update(product);
@@ -44,10 +65,8 @@ function App() {
 }
   return (
     <div className="container">
-      
         <Routes>
           <Route path="/" element={<WebsiteLayout />}>
-            
               <Route index element={<Homepage products={products}/>} />
               <Route path="product">
                 <Route index element={<ProductPage products={products}/>} />
@@ -62,6 +81,10 @@ function App() {
                 <Route index element={<ProductManager products={products} onRemove={removeItem}/>} />
                 <Route path="add" element={<ProductAdd onAdd={onHanldeAdd}/>} />
                 <Route path=':id/edit' element={<ProductEdit onUpdate={onHandleUpdate}/>}/>
+              </Route>
+              <Route path='category'>
+                <Route index element={<CategoriesManager categories={categories} onRemove={removeCateItem}/>}/>
+                <Route path="add" element={<CategoriesAdd onCateAdd={onHanldeCateAdd}/>} />
               </Route>
           </Route>
           <Route path="/signup" element={<Signup />} />

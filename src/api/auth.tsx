@@ -5,7 +5,7 @@ type User = {
     password: string
 }
 export const signup = (user: User) => {
-    const url = `/signup`;
+    const url = `/users`;
     return instance.post(url, user);
 }
 export const signin = (user: User) => {

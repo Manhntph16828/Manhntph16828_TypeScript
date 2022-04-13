@@ -2,8 +2,9 @@
   "products": [
     {
       "name": "Nguyên Bùi số 1",
-      "price": "999999999",
-      "id": 8
+      "price": "200000",
+      "id": 8,
+      "desc": "mô tả"
     },
     {
       "name": "nguyen tien manh",
@@ -54,6 +55,32 @@
       "name": "test 3",
       "price": "600000",
       "id": 19
+    }
+  ],
+  "users": [
+    {
+      "name": "manhmuc",
+      "email": "tienmanh042002@gmail.com",
+      "password": "tienmanh",
+      "status": "active",
+      "role": "1",
+      "id": 1
+    },
+    {
+      "name": "tienmanhnguyen",
+      "email": "manhmuc02@gmail.com",
+      "password": "123456",
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "name": "Đồ Nữ",
+      "id": 1
+    },
+    {
+      "name": "man",
+      "id": 2
     }
   ]
 }

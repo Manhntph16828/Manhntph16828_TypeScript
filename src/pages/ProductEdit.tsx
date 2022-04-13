@@ -9,7 +9,8 @@ type ProductEditProps = {
 }
 type FormInputs = {
     name: string,
-    price: number
+    price: number,
+    desc: string
 }
 const ProductEdit = (props: ProductEditProps) => {
     const { register, handleSubmit, formState: {errors}, reset} = useForm<FormInputs>();
@@ -42,6 +43,10 @@ const ProductEdit = (props: ProductEditProps) => {
             <div>
             <label htmlFor="email" className="text-sm text-gray-700 block mb-1 font-medium">Price</label>
             <input type="text" {...register('price')} id="email" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"  />
+            </div>
+            <div>
+            <label htmlFor="email" className="text-sm text-gray-700 block mb-1 font-medium">Mô tả</label>
+            <input type="text" {...register('desc')} id="email" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"  />
             </div>
         </div>
     
