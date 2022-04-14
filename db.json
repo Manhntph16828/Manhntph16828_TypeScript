@@ -48,6 +48,13 @@
       "categoryPro": "Bún",
       "desc": "mô tả",
       "id": 7
+    },
+    {
+      "name": "Cơm rang",
+      "price": "30000",
+      "categoryPro": "Bún",
+      "desc": "mô tả",
+      "id": 8
     }
   ],
   "users": [
@@ -70,6 +77,12 @@
       "email": "nguyentienmanhhotboy@gmail.com",
       "password": "123456",
       "id": 3
+    },
+    {
+      "name": "manhmuc04",
+      "email": "taoiubeo@gmail.com",
+      "password": "tienmanh",
+      "id": 4
     }
   ],
   "categories": [

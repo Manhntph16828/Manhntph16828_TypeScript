@@ -30,10 +30,10 @@ export const update = (product: ProductType) => {
     const url = `/products/${product.id}`;
     return instance.put(url, product);
 }
-export const search = (keyword) => {
-    const url = `search?name=${keyword}`;
-    return instance.get(url);
-}
+// export const search = (keyword) => {
+//     const url = `search?name=${keyword}`;
+//     return instance.get(url);
+// }
 
 
 

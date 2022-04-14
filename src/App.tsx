@@ -64,7 +64,7 @@ function App() {
   const onHanldeCateAdd = (data :CategoriesType) => {
     addCate(data);
     setCategory([...categories, data])
-}
+  }
 
   const onHandleUpdate = async (product: ProductType) => {
     const { data } = await update(product);
