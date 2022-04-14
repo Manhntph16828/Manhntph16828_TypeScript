@@ -55,6 +55,40 @@
       "name": "test 3",
       "price": "600000",
       "id": 19
+    },
+    {
+      "name": "manhmuc",
+      "price": "200000",
+      "img": {
+        "0": {}
+      },
+      "categoryPro": "man",
+      "desc": "mô tả 4",
+      "id": 20
+    },
+    {
+      "name": "sp mới 1",
+      "price": "12345",
+      "categoryPro": "Đồ Nữ",
+      "desc": "mô tả 5",
+      "id": 21
+    },
+    {
+      "name": "bún bò",
+      "price": "900000",
+      "categoryPro": "man",
+      "desc": "mô tả 6",
+      "id": 22
+    },
+    {
+      "name": "Bún",
+      "price": "200000",
+      "img": {
+        "0": {}
+      },
+      "categoryPro": "Đồ Nữ",
+      "desc": "mô tả",
+      "id": 23
     }
   ],
   "users": [
@@ -71,6 +105,12 @@
       "email": "manhmuc02@gmail.com",
       "password": "123456",
       "id": 2
+    },
+    {
+      "name": "manh",
+      "email": "nguyentienmanhhotboy@gmail.com",
+      "password": "123456",
+      "id": 3
     }
   ],
   "categories": [

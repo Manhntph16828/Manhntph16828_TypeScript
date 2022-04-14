@@ -32,10 +32,19 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
                   </th>
                   <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                       <div className="flex items-center justify-center">
+                          Image   
+                      </div>
+                  </th>
+                  <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                      <div className="flex items-center justify-center">
                           Price 
                       </div>
                   </th>
-                  
+                  <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                      <div className="flex items-center justify-center">
+                          Loại 
+                      </div>
+                  </th>
                   <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                       <div className="flex items-center justify-center">
                           Action
@@ -48,8 +57,9 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
               return <tr className="bg-gray-100 text-center border-b text-sm text-gray-600" key={index}>
                 <td className="p-2 border-r">{index +1}</td>
                 <td className="p-2 border-r">{item.name}</td>
+                <td className="p-2 border-r"><img src={item.img} alt=""/></td>
                 <td className="p-2 border-r">{item.price}</td>
-                
+                <td className="p-2 border-r">{item.categoryPro}</td>
                 <td>
                     <NavLink className='mr-4' to={`/admin/product/${item.id}/edit`}>Edit</NavLink>
                     <button className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin" onClick={() => onRemove(item.id)} >Remove</button>

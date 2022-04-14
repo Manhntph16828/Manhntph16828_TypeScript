@@ -14,23 +14,16 @@ type InputForm = {
 const SignIn = (props: Props) => {
     const navigate = useNavigate()
     const { register, handleSubmit } = useForm<InputForm>();
-    const onSubmit: SubmitHandler<InputForm> = async (data : InputForm) => {        
-        const { data: user } = await signin(data);       
-        if(user.user.status === "active"){
-            if(user.user.role == "0"){
-                // admin ở đây
-                navigate('/admin/dashboard')
-            }else{
-                // user
-                navigate('/')
-            }
-            localStorage.setItem("token", user.accessToken);
-        }else{
-          
-            alert('Tài khoản của bạn bị khóa')
+
+    const onSubmit: SubmitHandler<InputForm> = async data  => {
+        const {data: user} = await signin(data)
+        localStorage.setItem('user', JSON.stringify(user))
+        if (user.user.role == 1) {
+            navigate('/admin')
+        } else {
+            navigate('/')
         }
-        
-    };
+    }
     return (
         <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8" >
             <div className="max-w-md w-full space-y-8">

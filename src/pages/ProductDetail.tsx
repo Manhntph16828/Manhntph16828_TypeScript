@@ -9,10 +9,11 @@ type ProductDetailProps = {
 
 const ProductDetail = (props: ProductDetailProps) => {
 	const [products, setProducts] = useState<ProductType[]>([]);
+	const {id} = useParams()
 	useEffect(() => {
         const getProduct = async () => {
-            const { data } = await read(id);
-            setProducts(data)
+            const { data: dataProduct } = await read(id);
+            setProducts(dataProduct)
         }
         getProduct();
     }, [])
@@ -48,9 +49,9 @@ const ProductDetail = (props: ProductDetailProps) => {
 				<div className="col-md-4">
 					<div className="block">
 						<div className="product-des">
-							<h4>Claritas est etiam</h4>
-							<p className="price">$380</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, culpa, esse, magni omnis blanditiis unde vitae in nobis fuga optio numquam at ipsum impedit perspiciatis quia rem consequatur recusandae repudiandae provident nemo voluptatibus corporis ab id iste pariatur ipsam vero porro eos eaque rerum nam dolorum mollitia adipisci. Quaerat, ullam!</p>
+							<h4>{products.name}</h4>
+							<p className="price">{products.price}</p>
+							<p>{products.desc}</p>
 							<a className="view-link" href="#"><i className="fa fa-plus-circle"></i>Add To Cart</a>
 						</div>	
 					</div> 
@@ -98,7 +99,6 @@ const ProductDetail = (props: ProductDetailProps) => {
 							      		<a href="" className="media-heading">
 							      		Anzac Salad
 							      		<p>Lorem ipsum dolor sit.</p>
-
 							      		</a>
 							    	</div>
 							  	</li>	

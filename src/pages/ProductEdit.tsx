@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate, useParams} from 'react-router-dom';
+import { listCate } from '../api/category';
 import { read } from '../api/product';
+import { CategoriesType } from './types/category';
 import { ProductType } from './types/product';
 
 type ProductEditProps = {
@@ -9,10 +11,13 @@ type ProductEditProps = {
 }
 type FormInputs = {
     name: string,
+    img?: string,
     price: number,
-    desc: string
+    desc: string,
+    categoryPro: string
 }
 const ProductEdit = (props: ProductEditProps) => {
+    const [categories, setCategories] = useState<CategoriesType[]>([])
     const { register, handleSubmit, formState: {errors}, reset} = useForm<FormInputs>();
     const navigate = useNavigate();
     const { id } = useParams();
@@ -23,6 +28,11 @@ const ProductEdit = (props: ProductEditProps) => {
             reset(data)
         }
         getProduct();
+        const getCategoryPro = async () => {
+            const { data } = await listCate();
+            setCategories(data)
+        }
+        getCategoryPro();
     }, [])
 
     const onSubmit: SubmitHandler<FormInputs> = data => {
@@ -39,11 +49,56 @@ const ProductEdit = (props: ProductEditProps) => {
                 <input type="text"  {...register('name', {required: true})} id="name" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"  />
                 { errors.name && <span>Fields is required</span>}
             </div>
-    
+
             <div>
             <label htmlFor="email" className="text-sm text-gray-700 block mb-1 font-medium">Price</label>
             <input type="text" {...register('price')} id="email" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"  />
             </div>
+            <div className="grid grid-cols-2 gap-5">
+                        <div className="m-full">
+                            <label className="block text-gray-700 text-sm font-bold mb-2">
+                                Image
+                            </label>
+                            <div className="mb-3">
+                                <input
+                                    {...register('img', { required: true })}
+                                    className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                                            rounded
+                                            transition
+                                            ease-in-out
+                                            m-0
+                                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    type="text"
+                                    id="img-product" />
+                            </div>
+                        </div>
+                        <div className="m-full mb-6">
+                            <label className="block text-gray-700 text-sm font-bold mb-2">
+                                Category Name
+                            </label>
+                            <select
+                                {...register('categoryPro', { required: true })}
+                                className="selected-cate form-select appearance-none block 
+                                            w-full
+                                            px-3
+                                            py-[4px]
+                                            text-base
+                                            font-normal
+                                            text-gray-700
+                                            bg-white bg-clip-padding bg-no-repeat
+                                            border border-solid border-gray-300
+                                            rounded
+                                            transition
+                                            ease-in-out
+                                            m-0
+                                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                aria-label="Default select example">
+                                {categories?.map((item) => {
+                                    return <option className="" value={item._id}>{item.name}</option>
+                                })}
+                            </select>
+                        </div>
+                    </div>
             <div>
             <label htmlFor="email" className="text-sm text-gray-700 block mb-1 font-medium">Mô tả</label>
             <input type="text" {...register('desc')} id="email" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"  />
