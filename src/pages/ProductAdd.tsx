@@ -47,7 +47,7 @@ const ProductAdd = (props: ProductAddProps) => {
             <input type="text" {...register('price')} id="price" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"  />
             </div>
             <div className="grid grid-cols-2 gap-5">
-              <div className="m-full">
+              {/* <div className="m-full">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   Image
                 </label>
@@ -63,7 +63,7 @@ const ProductAdd = (props: ProductAddProps) => {
                     type="file"
                     id="img-product" />
                 </div>
-              </div>
+              </div> */}
               <div className="m-full mb-6">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   Category Name

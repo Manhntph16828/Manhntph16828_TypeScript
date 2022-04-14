@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Search from './Search'
 
 type Props = {}
 
@@ -54,14 +55,7 @@ const Header = (props: Props) => {
 					</ul>
 				</div>
 				<div className="col-md-2">
-					<div className="search-box">
-						<div className="input-group">
-					    	<input placeholder="Search Here" type="text" className="form-control"/>
-					      	<span className="input-group-btn">
-					        	<button className="btn btn-default" type="button"></button>
-					      	</span>
-					    </div>
-					</div>
+					<Search></Search>
 				</div>
 			</div> 
 		</div>	

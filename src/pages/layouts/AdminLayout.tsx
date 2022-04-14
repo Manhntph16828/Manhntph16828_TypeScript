@@ -35,7 +35,9 @@ const AdminLayout = (props: Props) => {
         <Menu.Item key="2">
         <NavLink to="/admin/category">Quản lý danh mục</NavLink>
         </Menu.Item>
-        
+        <Menu.Item key="3">
+        <NavLink to="/admin/category">Quản lý User</NavLink>
+        </Menu.Item>
       </Menu>
       </Sider>
 

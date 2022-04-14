@@ -1,7 +1,9 @@
 import Item from 'antd/lib/list/Item';
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
+import { listCate } from '../api/category';
 import { list } from '../api/product';
+import { CategoriesType } from './types/category';
 import { ProductType } from './types/product'
 
 type ProductPageProps = {
@@ -11,13 +13,21 @@ type ProductPageProps = {
 const ProductPage = (props: ProductPageProps) => {
   const [status, setStatus] = useState(false);
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [categories, setcategories] = useState<CategoriesType[]>([]);
   useEffect(() => {
-	const getProducts = async () => {
-		  const { data } = await list();
-		  setProducts(data);
-	}
-	getProducts();
-}, [])
+    const getProducts = async () => {
+        const { data } = await list();
+        setProducts(data);
+    }
+    getProducts();
+
+
+    const getCategories = async () => {
+      const { data } = await listCate();
+      setcategories(data);
+    }
+    getCategories();
+  }, [])
   return (
     <div>
   <section id="topic-header">
@@ -63,83 +73,7 @@ const ProductPage = (props: ProductPageProps) => {
                     </div>	
                   </li>
                   })}
-                    
-                    {/* <li>
-                        <div className="products">
-                    <a href="#">
-                      <img src="images/product-image-8.jpg" alt=""/>
-                    </a>
-                    <a href="#">
-                      <h4>Amazing Italian Sauces</h4>
-                    </a>
-                    <p className="price">From: £69.99</p>
-                    <div >
-                      <a className="view-link shutter" href="#">
-                      <i className="fa fa-plus-circle"></i>Add To Cart</a>
-                    </div>
-                  </div>
-                    </li>
-                    <li>
-                        <div className="products">
-                    <a href="#">
-                      <img src="images/product-image-8.jpg" alt=""/>
-                    </a>
-                    <a href="#">
-                      <h4>Amazing Italian Sauces</h4>
-                    </a>
-                    <p className="price">From: £69.99</p>
-                    <div >
-                      <a className="view-link shutter" href="#">
-                      <i className="fa fa-plus-circle"></i>Add To Cart</a>
-                    </div>
-                  </div>	
-                    </li>
-                    <li>
-                        <div className="products">
-                    <a href="#">
-                      <img src="images/product-image-8.jpg" alt=""/>
-                    </a>
-                    <a href="#">
-                      <h4>Amazing Italian Sauces</h4>
-                    </a>
-                    <p className="price">From: £69.99</p>
-                    <div >
-                      <a className="view-link shutter" href="#">
-                      <i className="fa fa-plus-circle"></i>Add To Cart</a>
-                    </div>
-                  </div>	
-                    </li>
-                    <li>
-                        <div className="products">
-                    <a href="#">
-                      <img src="images/product-image-8.jpg" alt=""/>
-                    </a>
-                    <a href="#">
-                      <h4>Amazing Italian Sauces</h4>
-                    </a>
-                    <p className="price">From: £69.99</p>
-                    <div >
-                      <a className="view-link shutter" href="#">
-                      <i className="fa fa-plus-circle"></i>Add To Cart</a>
-                    </div>
-                  </div>	
-                    </li>
-                    <li>
-                      <div className="products">
-                    <a href="#">
-                      <img src="images/product-image-8.jpg" alt=""/>
-                    </a>
-                    <a href="#">
-                      <h4>Amazing Italian Sauces</h4>
-                    </a>
-                    <p className="price">From: £69.99</p>
-                    <div >
-                      <a className="view-link shutter" href="#">
-                      <i className="fa fa-plus-circle"></i>Add To Cart</a>
-                    </div>
-                  </div>	
-                    </li> */}
-                    
+                   
                 </ul>
             </div>
             <div className="pagination-bottom">
@@ -157,28 +91,16 @@ const ProductPage = (props: ProductPageProps) => {
             <div className="blog-sidebar">
               <div className="block">
                 <h4>Catagories</h4>
-                <div className="list-group">
+                {categories?.map((item,index)=>{
+                  return <div className="list-group">
                   <a href="#" className="list-group-item">
                     <i className="fa  fa-dot-circle-o"></i>
-                    Italian Foods
+                    {item.name}
                   </a>
-                  <a href="#" className="list-group-item">
-                    <i className="fa  fa-dot-circle-o"></i>
-                    Traditional Food
-                  </a>
-                  <a href="#" className="list-group-item">
-                    <i className="fa  fa-dot-circle-o"></i>
-                    Indian Food
-                  </a>
-                  <a href="#" className="list-group-item">
-                    <i className="fa  fa-dot-circle-o"></i>
-                    Spanish Food
-                  </a>
-                  <a href="#" className="list-group-item">
-                    <i className="fa  fa-dot-circle-o"></i>
-                    Thai FoodN
-                  </a>
+                  
                 </div>
+                })}
+                
               </div>
               <div className="block">
                 <img src="images/food-ad.png" alt=""/>

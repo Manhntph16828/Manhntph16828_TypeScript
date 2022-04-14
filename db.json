@@ -1,94 +1,53 @@
 {
   "products": [
     {
-      "name": "Nguyên Bùi số 1",
-      "price": "200000",
-      "id": 8,
-      "desc": "mô tả"
+      "name": "Bún bò Huế",
+      "price": "90000",
+      "categoryPro": "Bún",
+      "desc": "Bún làm từ gạo",
+      "id": 1
     },
     {
-      "name": "nguyen tien manh",
-      "price": "12344",
-      "id": 9
+      "name": "Mì xào bò",
+      "price": "50000",
+      "categoryPro": "Mì",
+      "desc": "Mô tả",
+      "id": 2
     },
     {
-      "name": "name",
-      "price": "12344",
-      "id": 10
+      "name": "Nước cam",
+      "price": "100000",
+      "categoryPro": "Đồ uống",
+      "desc": "Mô tả",
+      "id": 3
     },
     {
-      "name": "edit",
-      "price": "12344",
-      "id": 12
-    },
-    {
-      "name": "mẫu 1",
-      "price": "5555",
-      "id": 13
-    },
-    {
-      "name": "name",
-      "price": "123555",
-      "id": 14
-    },
-    {
-      "name": "aaaaaa",
-      "price": "111111",
-      "id": 15
-    },
-    {
-      "name": "mơi aaa",
-      "price": "22222",
-      "id": 16
-    },
-    {
-      "name": "mơi aaa",
-      "price": "12344",
-      "id": 17
-    },
-    {
-      "name": "sp ms",
-      "price": "123",
-      "id": 18
-    },
-    {
-      "name": "test 3",
-      "price": "600000",
-      "id": 19
-    },
-    {
-      "name": "manhmuc",
-      "price": "200000",
-      "img": {
-        "0": {}
-      },
-      "categoryPro": "man",
-      "desc": "mô tả 4",
-      "id": 20
-    },
-    {
-      "name": "sp mới 1",
-      "price": "12345",
-      "categoryPro": "Đồ Nữ",
-      "desc": "mô tả 5",
-      "id": 21
-    },
-    {
-      "name": "bún bò",
-      "price": "900000",
-      "categoryPro": "man",
-      "desc": "mô tả 6",
-      "id": 22
-    },
-    {
-      "name": "Bún",
-      "price": "200000",
-      "img": {
-        "0": {}
-      },
-      "categoryPro": "Đồ Nữ",
+      "name": "Nước lọc",
+      "price": "5000",
+      "categoryPro": "Đồ uống",
       "desc": "mô tả",
-      "id": 23
+      "id": 4
+    },
+    {
+      "name": "Kem sôcla",
+      "price": "20000",
+      "categoryPro": "Tráng miệng",
+      "desc": "mô tả",
+      "id": 5
+    },
+    {
+      "name": "Xì xào hải sản",
+      "price": "60000",
+      "categoryPro": "Mì",
+      "desc": "",
+      "id": 6
+    },
+    {
+      "name": "Bún ngan",
+      "price": "60000",
+      "categoryPro": "Bún",
+      "desc": "mô tả",
+      "id": 7
     }
   ],
   "users": [
@@ -115,12 +74,20 @@
   ],
   "categories": [
     {
-      "name": "Đồ Nữ",
+      "name": "Bún",
       "id": 1
     },
     {
-      "name": "man",
+      "name": "Mì",
       "id": 2
+    },
+    {
+      "name": "Đồ uống",
+      "id": 3
+    },
+    {
+      "name": "Tráng miệng",
+      "id": 4
     }
   ]
 }

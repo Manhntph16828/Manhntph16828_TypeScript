@@ -18,6 +18,7 @@ import CategoriesManager from './pages/CategoryManager'
 import { CategoriesType } from './pages/types/category'
 import CategoriesAdd from './pages/CategoriesAdd'
 import { addCate, listCate, removeCate } from './api/category'
+import UserManager from './pages/UserManager'
 
 function App() {
   const [status, setStatus] = useState(false);
@@ -29,25 +30,32 @@ function App() {
             setProducts(data);
       }
       getProducts();
+
+      const getCategories = async () =>{
+        const { data } = await listCate();
+        setCategory(data);
+      }
+      getCategories();
   }, [])
-  useEffect(()=>{
-    const getCategories = async () =>{
-      const { data } = await listCate();
-      setCategory(data);
-    }
-    getCategories();
-  },[])
-  const removeItem = (id:number) => {
-    remove(id);
+  
+  const removeItem = async (id:number) => {
+    const confirm = window.confirm('Bạn có muốn xóa');
+    if(confirm){
+      await remove(id);
     // reRender
     setProducts(products.filter(item => item.id !== id));
     // setProduct()
+    }
+    
   }
   const removeCateItem = (id:number) => {
-    removeCate(id);
-    // reRender
-    setCategory(categories.filter(item => item.id !== id));
-    // setProduct()
+      const confirm = window.confirm('Bạn có muốn xóa');
+      if(confirm){
+        removeCate(id);
+        // reRender
+        setCategory(categories.filter(item => item.id !== id));
+      // setProduct()
+    }
   }
   const onHanldeAdd = (data :ProductType) => {
       add(data);
@@ -86,6 +94,7 @@ function App() {
                 <Route index element={<CategoriesManager categories={categories} onRemove={removeCateItem}/>}/>
                 <Route path="add" element={<CategoriesAdd onCateAdd={onHanldeCateAdd}/>} />
               </Route>
+              
           </Route>
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
